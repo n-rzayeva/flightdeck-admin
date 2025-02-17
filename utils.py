@@ -1,15 +1,8 @@
 from passlib.context import CryptContext
-import os
 from datetime import datetime, timedelta, timezone
 from typing import Union, Any
 from jose import jwt
-
-
-ACCESS_TOKEN_EXPIRE_MINUTES = os.environ['ACCESS_TOKEN_EXPIRE_MINUTES']
-REFRESH_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7 # 7 days
-ALGORITHM = os.environ['ALGORITHM']
-JWT_SECRET_KEY = os.environ['JWT_SECRET_KEY']
-JWT_REFRESH_SECRET_KEY = os.environ['JWT_REFRESH_SECRET_KEY']
+from settings import ACCESS_TOKEN_EXPIRE_MINUTES, ALGORITHM, JWT_REFRESH_SECRET_KEY, JWT_SECRET_KEY, REFRESH_TOKEN_EXPIRE_MINUTES
 
 
 password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
